@@ -20,6 +20,38 @@
         </nav>
   </header>
 
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="page active">
+<div class="flex" style="flex-direction: column; max-width: 400px; margin: 80px auto; gap: 20px;">
+  <div class="col card">
+    <h2>Login</h2>
+    <input type="text" id="loginUsername" class="input-field"  placeholder="Username" />
+    <input type="password" id="loginPassword" class="input-field"  placeholder="Password" />
+    <button id="easyLoginBtn">Easy Login</button>
+    <button id="googleLoginBtn">Sign in with Google</button>
+    <div style="margin-top:12px; font-size:14px; text-align:center;">
+      Don't have an account? <a href="#" id="toSignup">Create Account</a>
+    </div>
+  </div>
+
+  <div class="col" id="signupCard" style="display:none;">
+    <h2>Sign Up</h2>
+    <input type="email" id="signupEmail" class="input-field"  placeholder="Email Address" />
+    <input type="text" id="signupUsername" class="input-field"  placeholder="Username" />
+    <input type="password" id="signupPassword" class="input-field"  placeholder="Password" />
+    <input type="password" id="signupConfirm" class="input-field"  placeholder="Confirm Password" />
+    <button id="easySignUpBtn">Easy Sign-Up</button>
+    <button id="googleSignUpBtn">Sign in with Google</button>
+    <div style="margin-top:12px; font-size:14px; text-align:center;">
+      Already have an account? <a href="#" id="toLogin">Login</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
 <!-- MAIN PAGE -->
 <div id="main" class="page">
   <div class="flex">
@@ -74,7 +106,7 @@
 </div>
 
 <!--add-->
-<div id="add" class="page active">
+<div id="add" class="page">
   <button onclick="showPage('history')">← Back</button>
   <div class="flex">
     <div class="col" style="flex:50%">
