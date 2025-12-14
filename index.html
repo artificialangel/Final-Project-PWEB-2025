@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Add Transaction</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="script.js"></script>
+</head>  
+
+<body>
+  <header class="header">
+    <h2>Money Expense Tracker</h2>
+        <nav class="header-actions">
+            <button class="h-btn-default" onclick="showPage('main')">Main Page</button>
+            <button class="h-btn-default" onclick="showPage('account')">Settings</button>
+            <button class="h-btn-add" onclick="showPage('add')">+ Add</button>
+        </nav>
+  </header>
+
+<!-- MAIN PAGE -->
+<div id="main" class="page">
+  <div class="flex">
+    <div class="col" style="flex:30%">
+      <div class="summary">
+        <div class="box">
+          <div>Pemasukan</div>
+          <div id="income" class="big-number">Rp 0</div>
+        </div>
+        <div class="box">
+          <div>Pengeluaran</div>
+          <div id="expense" class="big-number">Rp 0</div>
+        </div>
+        <div class="box">
+          <div>Balance</div>
+          <div id="balance" class="big-number">Rp 0</div>
+        </div>
+      </div>
+    <button style="margin-top:16px" onclick="showPage('history')">Lihat Daftar Transaksi</button>
+    </div>
+
+    <div class="col" style="flex:70%">
+      <canvas id="chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY PAGE -->
+<div id="history" class="page">
+<!--Search Bar-->
+    <div class="history-top">
+        <button onclick="showPage('main')">← Back</button>
+        <input id="searchInput" placeholder="Search History" />
+    </div>
+<!--Kiri-->
+  <div class="flex" style="margin-top:16px">
+    <div class="col" style="flex:25%">
+      <h4>Filter by Date</h4>
+      <input id="filterDate" type="text" placeholder="Select date range" />
+
+      <h4>Filter by Category</h4>
+      <select id="filterCategory">
+        <option value="All">All</option>
+        <option>Makanan</option>
+        <option>Transport</option>
+        <option>Belanja</option>
+      </select>
+    </div>
+<!--Kanan-->
+    <div class="col" style="flex:75%" id="historyList"></div>
+  </div>
+</div>
+
+<!--add-->
+<div id="add" class="page active">
+  <button onclick="showPage('history')">← Back</button>
+  <div class="flex">
+    <div class="col" style="flex:50%">
+      <h4>Nominal</h4>
+      <input id="amount" type="number" placeholder="Masukkan nominal" />
+
+      <h4>Jenis Transaksi</h4>
+      <select id="type">
+        <option value="income">Pemasukan</option>
+        <option value="expense">Pengeluaran</option>
+      </select>
+
+      <h4>Tanggal</h4>
+      <input id="date" type="date" />
+    </div>
+    <div class="col" style="flex:50%">
+      <h4>Kategori</h4>
+      <select id="category">
+        <option>Makanan</option>
+        <option>Transport</option>
+        <option>Belanja</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button onclick="deleteTransaction()">Hapus Transaksi</button>
+    <button onclick="saveTransaction()">Simpan Transaksi</button>
+  </div>
+</div>
+
+
+<!-- ACCOUNT PAGE -->
+<div id="account" class="page">
+  <div class="account-container">
+    <div class="account-box">
+      <p class="account-text">
+        Klik tombol ini untuk keluar dari akun dan mengakhiri sesi Anda.
+        Jika ingin lanjut menggunakan aplikasi, Anda harus melakukan login kembali.
+      </p>
+      <button class="account-btn logout-btn">Logout</button>
+    </div>
+    <div class="account-box danger">
+      <p class="account-text">
+        Klik tombol ini untuk menghapus akun Anda secara permanen beserta seluruh data
+        yang tersimpan. Setelah proses ini selesai, Anda harus membuat akun baru jika
+        ingin lanjut menggunakan layanan.
+      </p>
+      <button class="account-btn delete-btn">Hapus Akun</button>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+
+
+</html>
