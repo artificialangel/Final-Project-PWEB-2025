@@ -7,12 +7,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script src="script.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>  
 
 <body>
-  <header class="header">
+  <header id="mainHeader" class="header" style="display:none;">
     <h2>Money Expense Tracker</h2>
         <nav class="header-actions">
             <button class="h-btn-default" onclick="showPage('main')">Main Page</button>
@@ -24,32 +24,51 @@
 
 <!-- LOGIN PAGE -->
 <div id="loginPage" class="page active">
-<div class="flex" style="flex-direction: column; max-width: 400px; margin: 80px auto; gap: 20px;">
-  <div class="col card">
-    <h2>Login</h2>
-    <input type="text" id="loginUsername" class="input-field"  placeholder="Username" />
-    <input type="password" id="loginPassword" class="input-field"  placeholder="Password" />
-    <button id="easyLoginBtn">Easy Login</button>
-    <button id="googleLoginBtn">Sign in with Google</button>
-    <div style="margin-top:12px; font-size:14px; text-align:center;">
-      Don't have an account? <a href="#" id="toSignup">Create Account</a>
-    </div>
-  </div>
+  <div class="flex" style="flex-direction: column; max-width: 400px; margin: 80px auto; gap: 20px;">
+    <div class="col card">
+      <h2>Login</h2>
+      <input type="text" id="loginUsername" class="input-field" placeholder="Username (WAJIB)" />
+      <input type="password" id="loginPassword" class="input-field" placeholder="Password (WAJIB)" />
+      
+      <!-- Login button -->
+      <button id="loginBtn" style="color: aliceblue;">Login</button>     
+      
+      <!-- Easy Login as text -->
+      <div id="easyLoginText" style="text-align:center; margin-top:10px; cursor:pointer; color:#4E51BF; font-weight:bold;">
+        Easy Login
+      </div>
+      
+      <button id="googleLoginBtn" style="color: aliceblue;">Sign in with Google</button>
 
-  <div class="col" id="signupCard" style="display:none;">
-    <h2>Sign Up</h2>
-    <input type="email" id="signupEmail" class="input-field"  placeholder="Email Address" />
-    <input type="text" id="signupUsername" class="input-field"  placeholder="Username" />
-    <input type="password" id="signupPassword" class="input-field"  placeholder="Password" />
-    <input type="password" id="signupConfirm" class="input-field"  placeholder="Confirm Password" />
-    <button id="easySignUpBtn">Easy Sign-Up</button>
-    <button id="googleSignUpBtn">Sign in with Google</button>
-    <div style="margin-top:12px; font-size:14px; text-align:center;">
-      Already have an account? <a href="#" id="toLogin">Login</a>
+      <div style="margin-top:12px; font-size:14px; text-align:center; color: aliceblue;">
+        Don't have an account? <a href="#" id="toSignup">Create Account</a>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- SIGNUP PAGE -->
+<div id="signupCard" class="page" style="display:none;">
+  <div class="flex" style="flex-direction: column; max-width: 400px; margin: 80px auto; gap: 20px;">
+    <div class="col card">
+      <h2>Sign Up</h2>
+      
+      <input type="email" id="signupEmail" class="input-field" placeholder="Email Address (WAJIB)" />
+      <input type="text" id="signupUsername" class="input-field" placeholder="Username (WAJIB)" />
+      <input type="password" id="signupPassword" class="input-field" placeholder="Password (WAJIB)" />
+      <input type="password" id="signupConfirm" class="input-field" placeholder="Confirm Password (WAJIB)" />
+      
+      <!-- Sign Up button -->
+      <button id="easySignUpBtn" style="color: aliceblue;">Sign Up</button>
+      
+      <!-- Easy sign up / Google sign in -->
+      <button id="googleSignUpBtn" style="color: aliceblue;">Sign in with Google</button>
+      
+      <div style="margin-top:12px; font-size:14px; text-align:center; color: aliceblue;">
+        Already have an account? <a href="#" id="toLogin">Login</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -167,4 +186,3 @@
 
 
 </html>
-
