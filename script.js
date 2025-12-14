@@ -173,3 +173,46 @@ document.addEventListener('input', e => {
     renderHistory();
   }
 });
+
+
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById(id);
+  if (page) page.classList.add('active');
+}
+
+document.getElementById('toSignup').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('loginPage').querySelector('div.col:first-child').style.display = 'none';
+  document.getElementById('signupCard').style.display = 'block';
+});
+
+document.getElementById('toLogin').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('signupCard').style.display = 'none';
+  document.getElementById('loginPage').querySelector('div.col:first-child').style.display = 'block';
+});
+
+document.getElementById('easyLoginBtn').addEventListener('click', () => {
+  const user = document.getElementById('loginUsername').value;
+  if (!user) { alert("Please enter username"); return; }
+  showPage('main'); 
+});
+
+document.getElementById('googleLoginBtn').addEventListener('click', () => {
+  alert("Google login placeholder");
+  showPage('main');
+});
+
+document.getElementById('easySignUpBtn').addEventListener('click', () => {
+  const user = document.getElementById('signupUsername').value;
+  if (!user) { alert("Please enter username"); return; }
+  alert("Account created for " + user);
+  showPage('loginPage'); 
+});
+
+document.getElementById('googleSignUpBtn').addEventListener('click', () => {
+  alert("Google sign-up placeholder");
+  showPage('loginPage');
+});
